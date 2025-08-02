@@ -4,10 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow frontend calls (CORS)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all for dev, restrict in prod
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -15,7 +14,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "FastAPI running!"}
+    return {"message": "FastAPI is running!"}
 
 @app.get("/transcript/{video_id}")
 def get_transcript(video_id: str):
@@ -25,6 +24,9 @@ def get_transcript(video_id: str):
         return {"transcript": full_text}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ⬇️ This is the missing part ⬇️
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000)
