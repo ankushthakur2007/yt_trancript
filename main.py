@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from youtube_transcript_api import YouTubeTranscriptApi
+from main import YouTubeTranscriptApi
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
