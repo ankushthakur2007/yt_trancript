@@ -21,7 +21,7 @@ logging.basicConfig(level=logging.INFO)
 def root():
     return {"message": "API is running!"}
 
-@app.get("/transcript/{video_id}")
+@app.get("/{video_id}")
 def get_transcript(video_id: str):
     try:
         logging.info(f"Fetching transcript for video_id: {video_id}")
