@@ -25,8 +25,3 @@ def get_transcript(video_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
-# ⬇️ This is the missing part ⬇️
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
